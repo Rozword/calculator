@@ -1,15 +1,13 @@
 
-let display;
+let display=0;
 let firstNum = []
 let first;
 let second;
-let secondNum= []
+let secondNum= [];
 let operator;
 let result
 let number = document.querySelector('#display');
 number.textContent = `${display}`;
-
-
 
 const add = function(a,b) {  
     result = a+b
@@ -59,6 +57,7 @@ zero.addEventListener('click',function(e){
     number.textContent = `${first}`;
   }
   else{
+  secondNum = [];
   secondNum.push(0);
   second = secondNum.join('');
   number.textContent = `${second}`;
@@ -73,6 +72,7 @@ one.addEventListener('click',function(e){
     number.textContent = `${first}`;
   }
   else{
+  secondNum = []; 
   secondNum.push(1);
   second = secondNum.join('');
   number.textContent = `${second}`;
@@ -87,6 +87,7 @@ two.addEventListener('click',function(e){
     number.textContent = `${first}`;
   }
   else{
+  secondNum = [];
   secondNum.push(2);
   second = secondNum.join('');
   number.textContent = `${second}`;
@@ -101,6 +102,7 @@ three.addEventListener('click',function(e){
     number.textContent = `${first}`;
   }
   else{
+  secondNum = [];
   secondNum.push(3);
   second = secondNum.join('');
   number.textContent = `${second}`;
@@ -115,6 +117,7 @@ four.addEventListener('click',function(e){
     number.textContent = `${first}`;
   }
   else{
+  secondNum = [];
   secondNum.push(4);
   second = secondNum.join('');
   number.textContent = `${second}`;
@@ -129,6 +132,7 @@ five.addEventListener('click',function(e){
     number.textContent = `${first}`;
   }
   else{
+  secondNum = [];  
   secondNum.push(5);
   second = secondNum.join('');
   number.textContent = `${second}`;
@@ -143,6 +147,7 @@ six.addEventListener('click',function(e){
     number.textContent = `${first}`;
   }
   else{
+  secondNum = [];
   secondNum.push(6);
   second = secondNum.join('');
   number.textContent = `${second}`;
@@ -157,6 +162,7 @@ seven.addEventListener('click',function(e){
     number.textContent = `${first}`;
   }
   else{
+  secondNum = [];
   secondNum.push(7);
   second = secondNum.join('');
   number.textContent = `${second}`;
@@ -171,6 +177,7 @@ eight.addEventListener('click',function(e){
     number.textContent = `${first}`;
   }
   else{
+  secondNum = [];
   secondNum.push(8);
   second = secondNum.join('');
   number.textContent = `${second}`;
@@ -185,6 +192,7 @@ nine.addEventListener('click',function(e){
     number.textContent = `${first}`;
   }
   else{
+  secondNum = [];
   secondNum.push(9);
   second = secondNum.join('');
   number.textContent = `${second}`;
@@ -192,27 +200,42 @@ nine.addEventListener('click',function(e){
 });
 
 let sum = document.querySelector('#add');
-sum.addEventListener('click', function(e){
+sum.addEventListener('click', function(e){    
+    if((!isNaN(parseInt(first))&&!isNaN(parseInt(second)))){
+      number.textContent = `${operate(parseInt(first), parseInt(second))}`;
+      first = result;
+      second = undefined;
+    }
     operator = 'add';
-    number.textContent = `${secondNum}`;
+      
 })
 let sub = document.querySelector('#sub');
-sub.addEventListener('click', function(e){
-    operator = 'subtract';
-    number.textContent = `${secondNum}`;
+sub.addEventListener('click', function(e){    
+  if((!isNaN(parseInt(first))&&!isNaN(parseInt(second)))){
+      number.textContent = `${operate(parseInt(first), parseInt(second))}`;
+      first = result;
+      second = undefined;
+    }   
+    operator = 'subtract'; 
 })
 let multi = document.querySelector('#multi');
-multi.addEventListener('click', function(e){
-    operator = 'multiply';
-    number.textContent = `${secondNum}`;
+multi.addEventListener('click', function(e){    
+  if((!isNaN(parseInt(first))&&!isNaN(parseInt(second)))){
+      number.textContent = `${operate(parseInt(first), parseInt(second))}`;
+      first = result;
+      second = undefined;
+    }  
+    operator = 'multiply';  
 })
 let divi = document.querySelector('#divide');
-divi.addEventListener('click', function(e){
+divi.addEventListener('click', function(e){    
+  if((!isNaN(parseInt(first))&&!isNaN(parseInt(second)))){
+      number.textContent = `${operate(parseInt(first), parseInt(second))}`;
+      first = result;
+      second = undefined;
+    }    
     operator = 'divide';
-    
 })
-
-
 let equal = document.querySelector('#equal')
 equal.addEventListener('click', function(e){
   
