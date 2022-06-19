@@ -11,22 +11,22 @@ number.textContent = `${display}`;
 
 const add = function(a,b) {  
     result = a+b
-    return result;  
+    return (Number.isInteger(result)? result:result.toFixed(6));
   };
 
   const subtract = function(a,b) {
     result = a-b
-    return result;
+    return (Number.isInteger(result)? result:result.toFixed(6));
   };
 
   const multiply = function(a, b) {
     result = a*b
-    return result;
+    return (Number.isInteger(result)? result:result.toFixed(6));
   };
 
   const divide = function(a,b) {
-    result = a/b
-    return result;
+    (b===0)? result = "No, no, no... don\'t do that":result = a/b
+    return (Number.isInteger(result)? result:result.toFixed(6));
   };
 
   function operate(a, b){
@@ -41,8 +41,8 @@ const add = function(a,b) {
             return multiply(a,b);           
 
         case ('divide'):
-            return divide(a,b);
-         
+          return divide(a,b); 
+       
     }
 
   }
@@ -56,8 +56,7 @@ zero.addEventListener('click',function(e){
     first = firstNum.join('');    
     number.textContent = `${first}`;
   }
-  else{
-  secondNum = [];
+  else{  
   secondNum.push(0);
   second = secondNum.join('');
   number.textContent = `${second}`;
@@ -71,8 +70,7 @@ one.addEventListener('click',function(e){
     first = firstNum.join('');    
     number.textContent = `${first}`;
   }
-  else{
-  secondNum = []; 
+  else{  
   secondNum.push(1);
   second = secondNum.join('');
   number.textContent = `${second}`;
@@ -86,8 +84,7 @@ two.addEventListener('click',function(e){
     first = firstNum.join('');    
     number.textContent = `${first}`;
   }
-  else{
-  secondNum = [];
+  else{  
   secondNum.push(2);
   second = secondNum.join('');
   number.textContent = `${second}`;
@@ -101,8 +98,7 @@ three.addEventListener('click',function(e){
     first = firstNum.join('');    
     number.textContent = `${first}`;
   }
-  else{
-  secondNum = [];
+  else{  
   secondNum.push(3);
   second = secondNum.join('');
   number.textContent = `${second}`;
@@ -116,8 +112,7 @@ four.addEventListener('click',function(e){
     first = firstNum.join('');    
     number.textContent = `${first}`;
   }
-  else{
-  secondNum = [];
+  else{  
   secondNum.push(4);
   second = secondNum.join('');
   number.textContent = `${second}`;
@@ -131,8 +126,7 @@ five.addEventListener('click',function(e){
     first = firstNum.join('');    
     number.textContent = `${first}`;
   }
-  else{
-  secondNum = [];  
+  else{  
   secondNum.push(5);
   second = secondNum.join('');
   number.textContent = `${second}`;
@@ -146,8 +140,7 @@ six.addEventListener('click',function(e){
     first = firstNum.join('');    
     number.textContent = `${first}`;
   }
-  else{
-  secondNum = [];
+  else{  
   secondNum.push(6);
   second = secondNum.join('');
   number.textContent = `${second}`;
@@ -161,8 +154,7 @@ seven.addEventListener('click',function(e){
     first = firstNum.join('');    
     number.textContent = `${first}`;
   }
-  else{
-  secondNum = [];
+  else{  
   secondNum.push(7);
   second = secondNum.join('');
   number.textContent = `${second}`;
@@ -176,8 +168,7 @@ eight.addEventListener('click',function(e){
     first = firstNum.join('');    
     number.textContent = `${first}`;
   }
-  else{
-  secondNum = [];
+  else{  
   secondNum.push(8);
   second = secondNum.join('');
   number.textContent = `${second}`;
@@ -191,8 +182,7 @@ nine.addEventListener('click',function(e){
     first = firstNum.join('');    
     number.textContent = `${first}`;
   }
-  else{
-  secondNum = [];
+  else{  
   secondNum.push(9);
   second = secondNum.join('');
   number.textContent = `${second}`;
@@ -204,7 +194,7 @@ sum.addEventListener('click', function(e){
     if((!isNaN(parseInt(first))&&!isNaN(parseInt(second)))){
       number.textContent = `${operate(parseInt(first), parseInt(second))}`;
       first = result;
-      second = undefined;
+      secondNum = [];
     }
     operator = 'add';
       
@@ -214,7 +204,7 @@ sub.addEventListener('click', function(e){
   if((!isNaN(parseInt(first))&&!isNaN(parseInt(second)))){
       number.textContent = `${operate(parseInt(first), parseInt(second))}`;
       first = result;
-      second = undefined;
+      secondNum = [];
     }   
     operator = 'subtract'; 
 })
@@ -223,7 +213,7 @@ multi.addEventListener('click', function(e){
   if((!isNaN(parseInt(first))&&!isNaN(parseInt(second)))){
       number.textContent = `${operate(parseInt(first), parseInt(second))}`;
       first = result;
-      second = undefined;
+      secondNum = [];
     }  
     operator = 'multiply';  
 })
@@ -232,7 +222,7 @@ divi.addEventListener('click', function(e){
   if((!isNaN(parseInt(first))&&!isNaN(parseInt(second)))){
       number.textContent = `${operate(parseInt(first), parseInt(second))}`;
       first = result;
-      second = undefined;
+      secondNum = [];
     }    
     operator = 'divide';
 })
@@ -243,4 +233,15 @@ equal.addEventListener('click', function(e){
 
 });
 
+let clear = document.querySelector('#clear');
+clear.addEventListener('click', function(e){
+  display=0;
+  firstNum = [];
+  first = undefined;
+  second = undefined;
+  secondNum= [];
+  operator = undefined;
+  result = undefined;
+  number.textContent = 0
+})
 
