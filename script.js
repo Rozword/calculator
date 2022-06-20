@@ -310,7 +310,7 @@ function addDivi(){
   if((!isNaN(parseInt(firstNum))&&!isNaN(parseInt(secondNum)))){
     if(firstArray.includes('.') || secondArray.includes('.')){
       number.value = `${operate(parseFloat(firstNum), parseFloat(secondNum))}`;
-      ffirstNum = result;
+      firstNum = result;
       secondArray = [];
     }
     else{
